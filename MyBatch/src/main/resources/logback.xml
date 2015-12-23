@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+
+<configuration>
+	<!-- Log Path -->
+	<property name="ROOT_PATH" value="/tank0/log/root/%d{yyyyMMdd}" />
+	<property name="THREAD_PATH" value="/tank0/log/batch/%d{yyyyMMdd}" />
+	
+	<!-- Appenders : Console -->
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%date{yyyy-MM-dd HH:mm:ss} %-5level %logger{0}.%class.%method:%L - %msg %n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- Appenders : Root -->
+	<appender name="ROOT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${ROOT_PATH}/root_mybatch.log</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date{yyyy-MM-dd HH:mm:ss} %-5level %logger{0}.%class.%method:%L - %msg %n</pattern>
+		</encoder>
+	</appender>
+	
+	<!-- Appenders : Thread debug -->
+	<appender name="THREAD_DEBUG" class="ch.qos.logback.classic.sift.SiftingAppender">
+		<discriminator>
+			<key>threadLogFileName</key>
+			<DefaultValue>unkown</DefaultValue>
+		</discriminator>
+
+		<sift>
+			<appender name="THREAD-${threadLogFileName}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+					<fileNamePattern>${THREAD_PATH}/${threadLogFileName}.log</fileNamePattern>
+					<maxHistory>30</maxHistory>
+				</rollingPolicy>
+				<encoder>
+					<pattern>%date{yyyy-MM-dd HH:mm:ss} %-5level %logger{0}.%class.%method:%L - %msg %n</pattern>
+				</encoder>
+			</appender>
+		</sift>
+	</appender>
+
+	<!-- Appenders : Console Query -->
+	<!-- 
+	<appender name="CONSOLEQRY" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{0}.%method:%L - %msg %n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="java.sql" additivity="false"></logger>
+    <logger name="jdbc.connection" additivity="false"></logger>
+    <logger name="jdbc.sqltiming" additivity="false"></logger>
+    <logger name="jdbc.audit" additivity="false"></logger>
+    <logger name="jdbc.resultset" additivity="false"></logger>
+    
+    <logger name="jdbc.sqlonly" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="CONSOLEQRY" />
+    </logger>
+    
+    <logger name="jdbc.resultsettable" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="CONSOLEQRY" />
+    </logger>
+     -->
+    
+    <logger name="THREAD" additivity="false">
+    	<level value="INFO"/>
+    	<appender-ref ref="THREAD_DEBUG" />
+    </logger>
+
+	<root level="INFO">
+		<appender-ref ref="ROOT" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+</configuration>
