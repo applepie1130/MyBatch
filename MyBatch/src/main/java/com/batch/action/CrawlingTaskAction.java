@@ -9,7 +9,11 @@ import org.slf4j.LoggerFactory;
 import com.batch.common.CommonTaskAction;
 import com.batch.service.DailyQTService;
 import com.batch.service.DaumRealRankService;
+import com.batch.service.NateRealRankNewsService;
+import com.batch.service.NaverFinanceService;
+import com.batch.service.NaverFinanceUpperService;
 import com.batch.service.NaverRealRankService;
+import com.batch.service.NaverTrendRankService;
 
 /**
  * CrawlingTaskAction
@@ -32,6 +36,10 @@ public class CrawlingTaskAction {
 		services.add(NaverRealRankService.class);
 		services.add(DaumRealRankService.class);
 		services.add(DailyQTService.class);
+		services.add(NateRealRankNewsService.class);
+		services.add(NaverFinanceService.class);
+		services.add(NaverTrendRankService.class);
+		services.add(NaverFinanceUpperService.class);
 		
 		CommonTaskAction.run(services, args);
 	}

@@ -14,8 +14,6 @@ public class CommonTaskAction {
 		
 		try {
 			context = new ClassPathXmlApplicationContext("applicationContext.xml");
-			System.out.println(context);
-			
 			context.registerShutdownHook();
 			
 			taskExecutor = (ThreadPoolTaskExecutor) context.getBean("taskExecutor");
