@@ -34,6 +34,7 @@ public class CommonTaskAction {
 			
 		} finally {
 			// All Close
+			taskExecutor.shutdown();
 			context.close();
 		}
 	}
