@@ -87,6 +87,8 @@ public class NateRealRankNewsService implements Runnable {
 		        String filePath = commonConfig.getBatchDataDir() + "NateRealRankNewsList_" + nGb++ + ".json";
 		        commonFileUtil.writeFileToJSONList(filePath, lsRtnData);
 		        
+		        lsRtnData.clear();
+		        
 		        logger.info("=========== NateRealRankNewsService() ===========\n");
 		        
 			} catch (Exception e) {

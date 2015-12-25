@@ -27,7 +27,8 @@ public class CommonTaskAction {
 			
 			// Thread Run!!
 			for ( int i=0; i<services.size(); i++ ) {
-				Runnable runner = context.getBean(services.get(i));
+				Class<?> service = services.get(i);
+				Runnable runner = (Runnable) context.getBean(service);
 				taskExecutor.execute(runner);
 			}
 			
