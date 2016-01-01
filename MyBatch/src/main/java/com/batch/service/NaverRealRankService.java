@@ -35,7 +35,7 @@ public class NaverRealRankService implements Runnable {
 	
 	@Override
 	public void run() {
-		MDC.put("threadLogFileName", "NaverRealRankService");
+		MDC.put("threadLogFileName", this.getClass().getSimpleName());
 		
 		logger.info("=========== NaverRealRankService() ===========");
 		

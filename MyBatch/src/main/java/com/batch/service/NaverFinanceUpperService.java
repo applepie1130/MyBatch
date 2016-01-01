@@ -36,7 +36,7 @@ public class NaverFinanceUpperService implements Runnable {
 	
 	@Override
 	public void run() {
-		MDC.put("threadLogFileName", "NaverFinanceUpperService");
+		MDC.put("threadLogFileName", this.getClass().getSimpleName());
 		
 		logger.info("=========== NaverFinanceUpperService() ===========");
 		

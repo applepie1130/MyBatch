@@ -33,7 +33,7 @@ public class DailyQTService implements Runnable {
 	
 	@Override
 	public void run() {
-		MDC.put("threadLogFileName", "DailyQTService");
+		MDC.put("threadLogFileName", this.getClass().getSimpleName());
 		
 		logger.info("=========== DailyQTService() ===========");
 		

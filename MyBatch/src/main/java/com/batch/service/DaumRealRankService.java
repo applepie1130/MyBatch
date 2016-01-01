@@ -35,7 +35,7 @@ public class DaumRealRankService implements Runnable {
 	
 	@Override
 	public void run() {
-		MDC.put("threadLogFileName", "DaumRealRankService");
+		MDC.put("threadLogFileName", this.getClass().getSimpleName());
 		
 		logger.info("=========== DaumRealRankService() ===========");
 		
