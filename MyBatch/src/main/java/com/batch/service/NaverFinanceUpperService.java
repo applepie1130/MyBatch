@@ -85,6 +85,8 @@ public class NaverFinanceUpperService implements Runnable {
 				String filePath = commonConfig.getBatchDataDir() + "NaverFinanceUpperList_" + entry.getKey() + ".json";
 				commonFileUtil.writeFileToJSONList(filePath, lsRtnData);
 				
+				lsRtnData.clear();
+				
 			} catch (Exception e) {
 				logger.error("", e);
 			}
