@@ -31,8 +31,8 @@ public class NaverTrendRankService implements Runnable {
 		
 		logger.info("=========== NaverTrendRankService() ===========");
 		
-		List lsRtnData = new ArrayList<String>();
-		List lsTrendURL = new ArrayList<String>();
+		List<String> lsRtnData = new ArrayList<String>();
+		List<String> lsTrendURL = new ArrayList<String>();
 		
 		lsTrendURL.add("http://m.stock.naver.com/api/json/trend/getTrendList.nhn?type=search");		// 검색
 		lsTrendURL.add("http://m.stock.naver.com/api/json/trend/getTrendList.nhn?type=news");		// 뉴스
@@ -42,7 +42,7 @@ public class NaverTrendRankService implements Runnable {
 		lsTrendURL.add("http://m.stock.naver.com/api/json/trend/getTrendList.nhn?type=cafe");		// 카페
 		
 		RestTemplate restTemplate = new RestTemplate();
-		Iterator itr = lsTrendURL.iterator();
+		Iterator<String> itr = lsTrendURL.iterator();
 		
 		while ( itr.hasNext() ) {
 			lsRtnData.add(restTemplate.getForObject(itr.next().toString(), String.class));

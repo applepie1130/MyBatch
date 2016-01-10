@@ -7,7 +7,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 public class CommonTaskAction {
 	
-	public static void run(List<Class> services, String... args) {
+	public static <T> void run(List<Class> services, String... args) {
 		
 		ClassPathXmlApplicationContext context = null;
 		ThreadPoolTaskExecutor taskExecutor = null;

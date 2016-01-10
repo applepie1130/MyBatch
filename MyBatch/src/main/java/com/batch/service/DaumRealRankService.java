@@ -39,7 +39,7 @@ public class DaumRealRankService implements Runnable {
 		
 		logger.info("=========== DaumRealRankService() ===========");
 		
-		List lsRtnData	= new ArrayList();
+		List<Map<String, Object>> lsRtnData	= new ArrayList<Map<String, Object>>();
 		
 		try {
 			Document doc = Jsoup.connect(URL).get();
@@ -59,7 +59,7 @@ public class DaumRealRankService implements Runnable {
 	        	nChk++;
 	        	
 	        	if ( nChk % 2 == 0 ) {
-	        		Map mData = new HashMap();
+	        		Map<String, Object> mData = new HashMap<String, Object>();
 	        		mData.put("rank", nRank++);
 		        	mData.put("title", el.after("strong").text());
 		        	mData.put("link", el.attr("href"));

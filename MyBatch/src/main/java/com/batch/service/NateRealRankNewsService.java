@@ -17,7 +17,6 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ObjectUtils;
 
 import com.batch.common.CommonFileUtil;
 import com.batch.configuration.CommonConfiguration;
@@ -46,7 +45,7 @@ public class NateRealRankNewsService implements Runnable {
 									"http://m.news.nate.com/rank/list?mid=e2001&section=ent&rmode=interest",
 									"http://m.news.nate.com/rank/list?mid=s2001&section=spo&rmode=interest");
 		
-		List lsRtnData = new ArrayList();
+		List<Map<String, Object>> lsRtnData	= new ArrayList<Map<String, Object>>();
 		
 		int nGb = 1;
 		
@@ -71,8 +70,8 @@ public class NateRealRankNewsService implements Runnable {
 		        		break;
 		        	}
 		        	
-	        		Map mData = new HashMap();
-	        		
+	        		Map<String, Object> mData = new HashMap<String, Object>();
+	        			        		
 	        		mData.put("rank", nRank++);
 		        	mData.put("title", el.after("span").text());
 		        	mData.put("link", el.children().attr("href").replaceAll("m.news.nate.com", "news.nate.com").replaceAll("\\?.+", ""));

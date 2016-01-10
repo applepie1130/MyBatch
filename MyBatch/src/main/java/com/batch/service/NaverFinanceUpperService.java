@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -40,7 +39,7 @@ public class NaverFinanceUpperService implements Runnable {
 		
 		logger.info("=========== NaverFinanceUpperService() ===========");
 		
-		List lsRtnData = new ArrayList();
+		List<Map<String, Object>> lsRtnData	= new ArrayList<Map<String, Object>>();
 		
 		// KOSPI, KOSDAQ 타입설정
 		Map<String, Integer> mTypeData = new HashMap<String, Integer>();

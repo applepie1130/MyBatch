@@ -39,7 +39,7 @@ public class NaverFinanceService implements Runnable {
 		
 		logger.info("=========== NaverFinanceService() ===========");
 		
-		List lsRtnData	= new ArrayList();
+		List<Map<String, Object>> lsRtnData	= new ArrayList<Map<String, Object>>();
 		
 		try {
 			// 검색시간

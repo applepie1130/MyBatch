@@ -39,7 +39,7 @@ public class NaverRealRankService implements Runnable {
 		
 		logger.info("=========== NaverRealRankService() ===========");
 		
-		List lsRtnData	= new ArrayList();
+		List<Map<String, Object>> lsRtnData	= new ArrayList<Map<String, Object>>();
 		
 		try {
 			Document doc = Jsoup.connect(URL).get();
@@ -55,7 +55,7 @@ public class NaverRealRankService implements Runnable {
 	        
 	        // 실시간검색어 Parsing
 	        for (Element el : rcw) {
-	        	Map mData = new HashMap();
+	        	Map<String, Object> mData = new HashMap<String, Object>();
 	        	
 	        	mData.put("rank", el.parent().attr("value"));
 	        	mData.put("title", el.attr("title"));

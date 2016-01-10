@@ -37,7 +37,7 @@ public class DailyQTService implements Runnable {
 		
 		logger.info("=========== DailyQTService() ===========");
 		
-		Map mRtnData = new HashMap();
+		Map<String, Object> mRtnData = new HashMap<String, Object>();
 		
 		try {
 			Document doc = Jsoup.connect(URL).get();
