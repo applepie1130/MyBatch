@@ -86,6 +86,16 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+		<dependency>
+        	<groupId>org.springframework</groupId>
+        	<artifactId>spring-context-support</artifactId>
+        	<version>${spring-framework.version}</version>
+    	</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>${spring-framework.version}</version>
 		</dependency>
@@ -186,6 +196,14 @@
 			<version>1.8.2</version>
 		</dependency>
     	<!-- [E] JSoup for Crawling -->
+
+		<!-- [S] Quartz -->
+    	<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+		<!-- [E] Quartz -->
 	</dependencies>
 	
 	<!-- project build setting -->
