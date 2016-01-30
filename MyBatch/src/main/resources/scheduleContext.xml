@@ -22,7 +22,7 @@
 			p:durability="true"></bean>
 	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean" 
 			p:jobDetail-ref="myBatchJob" 
-			p:cronExpression="60 * * * * ?" ></bean>
+			p:cronExpression="59 * * * * ?" ></bean>
 	<bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		<property name="triggers">
 			<list>
